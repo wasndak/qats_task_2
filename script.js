@@ -22,10 +22,10 @@ export function restApi() {
     'Total key exists within json': (r) => JSON.parse(r.body)['total'] != undefined,
     'Last name exists for the first entry': (r) => JSON.parse(r.body)['data'][0]['last_name'] != undefined,
     'Last name exists for the second entry': (r) => JSON.parse(r.body)['data'][1]['last_name'] != undefined,
-    //'Length value is correct': (r) => (JSON.parse(r.body)['data']).length == JSON.parse(r.body)['total']
+    'Length value is correct': (r) => (JSON.parse(r.body)['data']).length == JSON.parse(r.body)['total']
   })
 
-  let externalData = __ENV.TEST_USER == undefined ? "morpheus" : __ENV.TEST_USER
+  let externalData = __ENV.TEST_USER == undefined ? "morpheus" : __ENV.USER
   let body = {"name": externalData ,"job":"leader"}
   let result_2 = http.post(`https://reqres.in/api/users`, body);
   check(result_2,{
