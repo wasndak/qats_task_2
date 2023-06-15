@@ -5,4 +5,6 @@ k6 run script.js
 
 k6 run -e TEST_USER=john script.js
 
+my test
+
 Test 
